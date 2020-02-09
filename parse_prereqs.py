@@ -116,9 +116,10 @@ def main():
         course.update({key: get_node_id(node) for key, node in reqs.items()})
         nodes[course["code"]] = {"type": "course", "info": course}
     
-    OUTPUT_FILE = "web/graph_nodes.json"
+    OUTPUT_FILE = "web/graphNodes.js"
     print(f'Saving to "{OUTPUT_FILE}"...')
     with open(OUTPUT_FILE, "w") as f:
+        f.write("graphNodes = ")
         # json.dump(nodes, f, separators=(",", ":"))
         json.dump(nodes, f, indent=4)
     quit()
