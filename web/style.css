@@ -163,6 +163,7 @@ div.square-wrapper > div {
   border: 10px solid #000000;
   background: #E5E5E5;
   margin-bottom: 0;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 div.square-wrapper > div > h3 {
@@ -210,6 +211,7 @@ div.rectangle-wrapper > div {
   margin: 30px;
   border: 10px solid #000000;
   background: #E5E5E5;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 div.rectangle-wrapper > div > h3 {
@@ -248,6 +250,7 @@ div.course-description {
   margin-top: 0;
   font-size: 20px;
   background: #E5E5E5;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 div.modal-footer {
