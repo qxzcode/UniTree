@@ -310,6 +310,9 @@ body.viewing-tree #graph-container {
     font-weight: bold;
     text-align: center;
     text-transform: uppercase;
+    
+    cursor: pointer;
+    user-select: none;
 }
 
 .compound-node .children {
@@ -321,4 +324,12 @@ body.viewing-tree #graph-container {
 
 .compound-node .children > div {
     margin: 0.7em 1.0em;
+}
+
+.compound-node.collapsed .title {
+    
+}
+
+.compound-node.collapsed .children {
+    display: none;
 }

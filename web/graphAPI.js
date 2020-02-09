@@ -33,10 +33,10 @@ function makeNodeElement(nodeID) {
         element.querySelector(".code").textContent = node.info.code;
         element.querySelector(".name").textContent = node.info.name;
         element.querySelector(".prerequisites-text").textContent = node.info.prerequisitesText;
-        const prereqs = node.info.prerequisites;
+        const prereqsElement = makeNodeElement(node.info.prerequisites);
         const prereqsContainer = element.querySelector(".prerequisites");
-        if (prereqs !== null) {
-            prereqsContainer.appendChild(makeNodeElement(prereqs));
+        if (prereqsElement !== null) {
+            prereqsContainer.appendChild(prereqsElement);
         }
         return element;
     } else {
@@ -50,6 +50,10 @@ function makeNodeElement(nodeID) {
         
         const element = cloneTemplate("compound-node-template");
         element.querySelector(".title").textContent = {or: "one of:", and: "all of:"}[node.type];
+        const mainDiv = element.querySelector(".compound-node");
+        element.querySelector(".title").addEventListener("click", function() {
+            mainDiv.classList.toggle("collapsed");
+        });
         const childrenContainer = element.querySelector(".children");
         childElements.forEach(childElement => childrenContainer.appendChild(childElement));
         return element;
