@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const searchInput = document.querySelector('.search-input');
-    const suggestionsPanel = document.querySelector('.suggestions');
+    const searchInput = document.getElementById('search-input');
+    const searchForm = document.getElementById('search-form');
+    const suggestionsPanel = document.getElementById('suggestions');
     
     const courseCodes = Object.keys(graphNodes).filter(id => !id.startsWith("*"));
     
