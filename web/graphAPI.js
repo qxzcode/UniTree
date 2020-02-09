@@ -41,15 +41,17 @@ function makeNodeElement(nodeID) {
         return element;
     } else {
         // a compound node
+        const childElements = node.children.map(childID => makeNodeElement(childID)).filter(e => e !== null);
+        if (childElements.length === 0) {
+            return null;
+        } else if (childElements.length === 1) {
+            return childElements[0];
+        }
+        
         const element = cloneTemplate("compound-node-template");
         element.querySelector(".title").textContent = {or: "one of:", and: "all of:"}[node.type];
         const childrenContainer = element.querySelector(".children");
-        for (const childID of node.children) {
-            const childElement = makeNodeElement(childID);
-            if (childElement !== null) {
-                childrenContainer.appendChild(childElement);
-            }
-        }
+        childElements.forEach(childElement => childrenContainer.appendChild(childElement));
         return element;
     }
 }
