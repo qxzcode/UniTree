@@ -6,6 +6,7 @@ var frameStep = 0.25;
 checkBorders();
 let dots = [];
 
+// Creates the initial array of dots
 for (var i = 0; i < numOfDots; i++) {
   var dot = {
     x: Math.floor(Math.random() * canvas.width),
@@ -19,14 +20,20 @@ for (var i = 0; i < numOfDots; i++) {
   drawDot(dot.x, dot.y, dot.radius);
 }
 
+// Runs the animation
 animate();
 
+// The main animation function of the program
 function animate() {
   checkBorders();
+
+  // Clears the canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  // Draws the lines between each dot
   drawLines();
 
+  // Moves every dot in a certain direction
   for (var i = 0; i < numOfDots; i++) {
 
     if(dots[i].xMove === "+") {
@@ -41,8 +48,11 @@ function animate() {
       dots[i].y -= frameStep;
     }
 
+    // Draws the new dot locations
     drawDot(dots[i].x, dots[i].y, dots[i].radius);
 
+    // The next few if statements simply check if the dot has hit the
+    // boundery of the screen and reverts their movement
     if((dots[i].x + dots[i].radius) >= canvas.width) {
       dots[i].xMove = "-";
     }
@@ -60,9 +70,11 @@ function animate() {
     }
   }
 
+  // Run the animation loop
   window.requestAnimationFrame(animate);
 }
 
+// Draws a lone between two dots if they are within 200 pixels of one another
 function drawLines() {
   ctx.lineWidth = 0.5;
 
@@ -89,6 +101,7 @@ function drawLines() {
   }
 }
 
+// Maintains the size of the canvas
 function checkBorders() {
   var width = canvas.clientWidth;
   var height = canvas.clientHeight;
@@ -102,6 +115,7 @@ function checkBorders() {
   }
 }
 
+// Draws a single dot at pointion (x, y) with radius r
 function drawDot(x, y, r) {
   ctx.beginPath();
   ctx.arc(x, y, r, 0, 2 * Math.PI);
