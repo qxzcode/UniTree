@@ -273,6 +273,7 @@ body.viewing-tree #graph-container {
     padding-left: 0.4em;
     margin-left: calc(-0.4em - 3px);
     background-color: rgba(0,0,0, 0.1);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .course-node .code {
@@ -300,6 +301,7 @@ body.viewing-tree #graph-container {
 
 .compound-node {
     border: 2px solid #FF9347;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 
 .compound-node .title {
