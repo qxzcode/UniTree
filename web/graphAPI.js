@@ -18,7 +18,7 @@ function getCourseColor(courseCode) {
     return depColors[depCode];
 }
 
-function makeNodeElement(nodeID) {
+function makeNodeElement(nodeID, depth = 0) {
     const node = graphNodes[nodeID];
     if (node === undefined) {
         // an unknown course code
@@ -33,7 +33,7 @@ function makeNodeElement(nodeID) {
         element.querySelector(".code").textContent = node.info.code;
         element.querySelector(".name").textContent = node.info.name;
         element.querySelector(".prerequisites-text").textContent = node.info.prerequisitesText;
-        const prereqsElement = makeNodeElement(node.info.prerequisites);
+        const prereqsElement = makeNodeElement(node.info.prerequisites, depth);
         const prereqsContainer = element.querySelector(".prerequisites");
         if (prereqsElement !== null) {
             prereqsContainer.appendChild(prereqsElement);
@@ -41,7 +41,7 @@ function makeNodeElement(nodeID) {
         return element;
     } else {
         // a compound node
-        const childElements = node.children.map(childID => makeNodeElement(childID)).filter(e => e !== null);
+        const childElements = node.children.map(childID => makeNodeElement(childID, depth+1)).filter(e => e !== null);
         if (childElements.length === 0) {
             return null;
         } else if (childElements.length === 1) {
@@ -51,6 +51,9 @@ function makeNodeElement(nodeID) {
         const element = cloneTemplate("compound-node-template");
         element.querySelector(".title").textContent = {or: "one of:", and: "all of:"}[node.type];
         const mainDiv = element.querySelector(".compound-node");
+        if (depth > 2) {
+            mainDiv.classList.add("collapsed");
+        }
         element.querySelector(".title").addEventListener("click", function() {
             mainDiv.classList.toggle("collapsed");
         });
