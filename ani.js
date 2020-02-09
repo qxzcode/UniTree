@@ -64,7 +64,7 @@ function animate() {
 }
 
 function drawLines() {
-  ctx.lineWidth = 0.25;
+  ctx.lineWidth = 0.5;
 
   for (var i = 0; i < numOfDots; i++) {
     for (var j = i + 1; j < numOfDots; j++) {

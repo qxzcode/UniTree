@@ -1,0 +1,87 @@
+div.canvas-wrapper
+{
+    position: absolute;
+    right:0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -100;
+    background-color: #303030;
+}
+
+
+body, html 
+{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    height: 100%; 
+}
+
+canvas
+{    
+    width: 100%;
+    height: 100%;
+}
+
+.header
+{
+    font-family: sans-serif;
+}
+
+h1
+{
+    text-align: center;
+    color: #F76902;
+    margin-bottom: 40px;
+    font-size: 100px;
+    letter-spacing: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.search-field
+{   
+    letter-spacing: 1px;
+    font-size: 15px;
+    height: 15px;
+    padding: 10px;
+}
+
+.courses
+{
+    width: 500px;
+    margin-left: 380px;
+}
+
+.buttons
+{
+    text-align: center;
+    margin: 30px;
+}
+
+.search
+{
+    letter-spacing: 1px;
+    background-color: lightgray;
+    margin-right: 10px;
+    border: none;
+    height: 30px;
+    width: 140px;
+    font-family: sans-serif;
+}
+
+.lucky
+{
+    letter-spacing: 1px;
+    background-color: lightgray;
+    margin-left: 10px;
+    border: none;
+    height: 30px;
+    width: 140px;
+    font-family: sans-serif;
+}
+
+
+
