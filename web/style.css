@@ -28,6 +28,15 @@ body.viewing-tree #search-form {
     display: none;
 }
 
+.back-button {
+    position: fixed;
+    top: 0.4em;
+    left: 0.4em;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    background-color: lightgray;
+    border: none;
+}
+
 canvas
 {
     width: 100%;
