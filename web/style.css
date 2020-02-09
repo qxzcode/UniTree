@@ -8,11 +8,6 @@ div.canvas-wrapper
     z-index: -100;
     background-color: #303030;
 }
-.wrapper
-{
-    height: 100%;
-    width: 100%;
-}
 
 body, html 
 {
@@ -29,6 +24,10 @@ canvas
     height: 100%;
 }
 
+.wrapper
+{
+    padding: 40px;
+}
 .header
 {
     font-family: sans-serif;
