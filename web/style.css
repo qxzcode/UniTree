@@ -268,10 +268,6 @@ body.viewing-tree #graph-container {
     opacity: 1;
 }
 
-.course-node {
-    padding: 0 1em;
-}
-
 .course-node .heading {
     border-left: 3px solid black;
     padding-left: 0.4em;
@@ -320,5 +316,9 @@ body.viewing-tree #graph-container {
     display: flex;
     align-items: flex-start;
     justify-content: space-evenly;
-    padding: 0.5em 0;
+    padding: 0.5em 0.5em;
+}
+
+.compound-node .children > div {
+    margin: 0.7em 1.0em;
 }

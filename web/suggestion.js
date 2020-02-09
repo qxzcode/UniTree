@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }).slice(0, 5);
         suggestions.forEach(function(courseCode) {
             const div = document.createElement('div');
-            div.textContent = `${courseCode.replace('-', ' ')} - ${graphNodes[courseCode].info.name}`;
+            div.textContent = `${courseCode.replace('-', ' ')} – ${graphNodes[courseCode].info.name}`;
             div.addEventListener("click", event => selectCourse(courseCode));
             suggestionsPanel.appendChild(div);
         });

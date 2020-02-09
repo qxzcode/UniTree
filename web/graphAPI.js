@@ -6,6 +6,18 @@ function deleteElement(element) {
     element.parentNode.removeChild(element);
 }
 
+let depColors = {};
+let nextHue = 0;
+const HUE_STEP = 360 * 4/13;
+function getCourseColor(courseCode) {
+    const depCode = courseCode.slice(0, courseCode.indexOf("-"));
+    if (!(depCode in depColors)) {
+        depColors[depCode] = `hsla(${nextHue}, 100%, 40%, 0.2)`;
+        nextHue += HUE_STEP;
+    }
+    return depColors[depCode];
+}
+
 function makeNodeElement(nodeID) {
     const node = graphNodes[nodeID];
     if (node === undefined) {
@@ -17,6 +29,7 @@ function makeNodeElement(nodeID) {
         element.querySelector(".info-button").addEventListener("click", function() {
             updateModal(node.info.code);
         });
+        element.querySelector(".heading").style.backgroundColor = getCourseColor(node.info.code);
         element.querySelector(".code").textContent = node.info.code;
         element.querySelector(".name").textContent = node.info.name;
         element.querySelector(".prerequisites-text").textContent = node.info.prerequisitesText;
