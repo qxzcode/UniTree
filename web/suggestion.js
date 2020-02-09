@@ -10,14 +10,14 @@ document.addEventListener('DOMContentLoaded', function() {
         suggestionsPanel.innerHTML = '';
         const suggestions = courseCodes.filter(function(courseCode) {
             const terms = [courseCode, graphNodes[courseCode].info.name];
-            return terms.some(term => term.toLowerCase().startsWith(input));
+            return terms.some(term => term.toLowerCase().includes(input));
         }).slice(0, 5);
         suggestions.forEach(function(courseCode) {
             const div = document.createElement('div');
-            div.textContent = `${graphNodes[courseCode].info.name} (${courseCode})`;
+            div.textContent = `${courseCode.replace('-', ' ')} - ${graphNodes[courseCode].info.name}`;
             suggestionsPanel.appendChild(div);
         });
-        if (input === '') {
+        if (input === '' || input === '-') {
             suggestionsPanel.innerHTML = '';
         }
     });

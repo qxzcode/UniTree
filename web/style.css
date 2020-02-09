@@ -31,6 +31,7 @@ canvas
 .header
 {
     font-family: sans-serif;
+    padding-bottom: 40px;
 }
 
 h1
@@ -100,6 +101,3 @@ h1
     width: 140px;
     font-family: sans-serif;
 }
-
-
-
