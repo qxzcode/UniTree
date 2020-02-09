@@ -74,10 +74,9 @@
                 </div>
 
                 <div class="buttons">
-                    <button class="search" type="button" onclick="updateModal()">Search</button>
+                    <button class="search" type="button">Search</button>
                     <script class="show-modal">
-                    function updateModal() {
-                      var courseCode = document.getElementById("search-input").value;
+                    function updateModal(courseCode) {
 
                       if (graphNodes[courseCode] !== -1) {
                         var name = graphNodes[courseCode].info.name;

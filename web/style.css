@@ -1,6 +1,6 @@
 div.canvas-wrapper
 {
-    position: absolute;
+    position: fixed;
     right:0;
     top: 0;
     left: 0;
@@ -86,34 +86,22 @@ h1
     margin: 30px;
 }
 
-.search
+.buttons > button
 {
     letter-spacing: 1px;
     background-color: lightgray;
-    margin-right: 10px;
+    margin: 0 10px;
     border: none;
     height: 30px;
     width: 140px;
     cursor: pointer;
 }
 
-.search:hover
+.buttons > button:hover
 {
     background-color: #F76902;
 }
 
-<<<<<<< HEAD
-.lucky
-{
-    letter-spacing: 1px;
-    background-color: lightgray;
-    margin-left: 10px;
-    border: none;
-    height: 30px;
-    width: 140px;
-    font-family: sans-serif;
-    cursor: pointer;
-=======
 div.modal-dialog {
   vertical-align: middle;
 }
@@ -172,24 +160,6 @@ div.square-wrapper > div > h3 {
   text-align: center;
   font-weight: bold;
 }
-
-/* div.grading:after {
-  content: "";
-  display: block;
-  padding-bottom: 100%;
-} */
-
-/* div.credits:after {
-  content: "";
-  display: block;
-  padding-bottom: 100%;
-} */
-
-/* div.type:after {
-  content: "";
-  display: block;
-  padding-bottom: 100%;
-} */
 
 p.credits-value {
   line-height: 90%;
@@ -268,12 +238,10 @@ div.course-description {
   margin-top: 0;
   font-size: 20px;
   background: #E5E5E5;
->>>>>>> a53931088d01a766c366bae9ee372d29454b7056
 }
 
-.lucky:hover
-{
-    background-color: #F76902;
+div.modal-footer {
+  border-top: 0;
 }
 
 
