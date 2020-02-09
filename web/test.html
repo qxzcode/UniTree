@@ -1,36 +1,34 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> UniTree </title>
-            <link rel="stylesheet" type="text/css" href="style.css" />
+        <title>UniTree</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
-   
+    
     <body>
-        <div class = "canvas-wrapper">
-            <canvas id = "visual">
+        <div class="canvas-wrapper">
+            <canvas id="visual">
                 Your browser does not support the canvas element.
             </canvas>
-            <script src = "ani.js"></script>
+            <script src="ani.js"></script>
         </div>
-
-        <div class = "wrapper">
+        
+        <div class="wrapper">
             <form>
-                <div class = "header">
-                    <h1>UniTree
-                    </h1>
-                </div>
-
-                <div class="container">                 
-                    <input class = "search-input courses" name = "search"
-                    type = "text" placeholder = "Search by course number, name, or code..."/>
-                    <div class="suggestions">
-                    </div>
-                    <script src = "suggestion.js"></script>
+                <div class="header">
+                    <h1>UniTree</h1>
                 </div>
                 
-                <div class = "buttons"> 
-                    <button class = "search" type = "button">Search</button>
-                    <button class = "lucky" type = "button">I'm Feeling Lucky</button>
+                <div class="container">                 
+                    <input class="search-input courses" name="search" type="text"
+                           placeholder="Search by course number, name, or code..." />
+                    <div class="suggestions"></div>
+                    <script src="suggestion.js"></script>
+                </div>
+                
+                <div class="buttons">
+                    <button class="search" type="button">Search</button>
+                    <button class="lucky" type="button">I'm Feeling Lucky</button>
                 </div>
             </form>
         </div>
