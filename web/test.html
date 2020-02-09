@@ -2,37 +2,118 @@
 <html>
     <head>
         <title>UniTree</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
-    
+
     <body>
+      <div class="modal fade" id="course-info" role="dialog">
+        <div class="modal-dialog modal-xl">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title"><span id="course-code" class="not-bold"></span><span id="course-name" class="not-bold"></span></h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="rectangle"></div>
+            <div class="modal-body">
+              <div class="square-wrapper">
+                <div class="credits">
+                  <h3 class="credits-header">Credits</h3>
+                  <p id="credits-value" class="credits-value"></p>
+                </div>
+                <div class="grading">
+                  <h3 class="grading-header">Grading</h3>
+                  <p id="grading-value" class="grading-value"></p>
+                </div>
+                <div class="type">
+                  <h3 class="type-header">Type</h3>
+                  <p id="type-value" class="type-value"></p>
+                </div>
+              </div>
+              <div class="rectangle-wrapper">
+                <div class="prerequisites">
+                  <h3 class="prerequisites-header">Prerequisites</h3>
+                  <p id="prerequisites-value" class="prerequisites-value"></p>
+                </div>
+                <div class="college">
+                  <h3 class="college-header">College</h3>
+                  <p id="college-value" class="college-value"></p>
+                </div>
+              </div>
+              <div class="course-description">
+                <h3 class="description-header">Description</h3>
+                <p id="description" class="description"></p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
         <div class="canvas-wrapper">
             <canvas id="visual">
                 Your browser does not support the canvas element.
             </canvas>
             <script src="ani.js"></script>
         </div>
-        
+
         <div class="wrapper">
             <form id="search-form">
                 <div class="header">
                     <h1>UniTree</h1>
                 </div>
-                
-                <div class="container">                 
-                    <input id="search-input" name="search" type="text" autofocus
+
+                <div class="container">
+                    <input id="search-input" name="search" type="text"
                            placeholder="Search by course number, name, or code..." />
                     <div id="suggestions"></div>
                     <script src="suggestion.js"></script>
                 </div>
-                
+
                 <div class="buttons">
-                    <button class="search" type="button">Search</button>
+                    <button class="search" type="button" onclick="updateModal()">Search</button>
+                    <script class="show-modal">
+                    function updateModal() {
+                      var courseCode = document.getElementById("search-input").value;
+
+                      if (graphNodes[courseCode] !== -1) {
+                        var name = graphNodes[courseCode].info.name;
+                        var credits = graphNodes[courseCode].info.credits;
+                        var grading = graphNodes[courseCode].info.gradingBasis;
+                        var type = graphNodes[courseCode].info.component;
+                        var prerequisites = graphNodes[courseCode].info.prerequisitesText;
+                        var college = graphNodes[courseCode].info.academicCareer;
+                        var description = graphNodes[courseCode].info.description;
+                        courseCode = courseCode + ": ";
+
+                        replaceInHTML("course-code", courseCode);
+                        replaceInHTML("course-name", name);
+                        replaceInHTML("credits-value", credits);
+                        replaceInHTML("grading-value", grading);
+                        replaceInHTML("type-value", type);
+                        replaceInHTML("prerequisites-value", prerequisites);
+                        replaceInHTML("college-value", college);
+                        replaceInHTML("description", description);
+
+                        $("#course-info").modal();
+                      }
+                    }
+
+                    function replaceInHTML(location, text) {
+                      document.getElementById(location).textContent = text;
+                    }
+                    </script>
                     <button class="lucky" type="button">I'm Feeling Lucky</button>
                 </div>
             </form>
         </div>
         <script src="graphNodes.js"></script>
         <script src="graphAPI.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
 </html>
