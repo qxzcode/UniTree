@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const courseCodes = Object.keys(graphNodes).filter(id => !id.startsWith("*"));
     
     searchInput.addEventListener('input', function() {
-        const input = searchInput.value.toLowerCase();
+        const input = searchInput.value.trim().toLowerCase();
         suggestionsPanel.innerHTML = '';
         const suggestions = courseCodes.filter(function(courseCode) {
             const terms = [courseCode, graphNodes[courseCode].info.name];
