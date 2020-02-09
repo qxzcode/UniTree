@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const input = searchInput.value.trim().toLowerCase();
         suggestionsPanel.innerHTML = '';
         const suggestions = courseCodes.filter(function(courseCode) {
-            const terms = [courseCode, graphNodes[courseCode].info.name];
+            const terms = [courseCode, courseCode.replace('-', ' '), graphNodes[courseCode].info.name];
             return terms.some(term => term.toLowerCase().includes(input));
         }).slice(0, 5);
         suggestions.forEach(function(courseCode) {

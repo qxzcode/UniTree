@@ -72,6 +72,13 @@ h1
     font-size: 20px;
     color: black;
     border-top: 1px solid #666;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+#suggestions div:hover
+{
+    background-color: #D7D2CB;
 }
 
 .buttons
@@ -89,6 +96,12 @@ h1
     height: 30px;
     width: 140px;
     font-family: sans-serif;
+    cursor: pointer;
+}
+
+.search:hover
+{
+    background-color: #F76902;
 }
 
 .lucky
@@ -100,4 +113,10 @@ h1
     height: 30px;
     width: 140px;
     font-family: sans-serif;
+    cursor: pointer;
+}
+
+.lucky:hover
+{
+    background-color: #F76902;
 }
