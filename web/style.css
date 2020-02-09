@@ -8,7 +8,11 @@ div.canvas-wrapper
     z-index: -100;
     background-color: #303030;
 }
-
+.wrapper
+{
+    height: 100%;
+    width: 100%;
+}
 
 body, html 
 {
@@ -28,6 +32,7 @@ canvas
 .header
 {
     font-family: sans-serif;
+    
 }
 
 h1
@@ -41,18 +46,24 @@ h1
     margin: 0;
 }
 
-.search-field
-{   
+.search-input
+{     
     letter-spacing: 1px;
     font-size: 15px;
     height: 15px;
     padding: 10px;
 }
 
+.container
+{
+    margin: 0 auto;
+    width: 50%;
+    background: #FFF;
+}
+
 .courses
 {
-    width: 500px;
-    margin-left: 380px;
+    width: 100%;
 }
 
 .buttons
