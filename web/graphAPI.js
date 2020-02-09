@@ -10,21 +10,16 @@ function makeNodeElement(nodeID) {
     const node = graphNodes[nodeID];
     if (node === undefined) {
         // an unknown course code
-        const element = cloneTemplate("course-node-template");
-        element.querySelector(".code").textContent = nodeID;
-        deleteElement(element.querySelector(".name"));
-        deleteElement(element.querySelector(".prerequisites"));
-        return element;
+        return null;
     } else if (node.type === "course") {
         // a known course
         const element = cloneTemplate("course-node-template");
         element.querySelector(".code").textContent = node.info.code;
         element.querySelector(".name").textContent = node.info.name;
+        element.querySelector(".prerequisites-text").textContent = node.info.prerequisitesText;
         const prereqs = node.info.prerequisites;
         const prereqsContainer = element.querySelector(".prerequisites");
-        if (prereqs === null) {
-            deleteElement(prereqsContainer);
-        } else {
+        if (prereqs !== null) {
             prereqsContainer.appendChild(makeNodeElement(prereqs));
         }
         return element;
@@ -34,7 +29,10 @@ function makeNodeElement(nodeID) {
         element.querySelector(".title").textContent = {or: "one", and: "all"}[node.type];
         const childrenContainer = element.querySelector(".children");
         for (const childID of node.children) {
-            childrenContainer.appendChild(makeNodeElement(childID));
+            const childElement = makeNodeElement(childID);
+            if (childElement !== null) {
+                childrenContainer.appendChild(childElement);
+            }
         }
         return element;
     }
@@ -42,6 +40,7 @@ function makeNodeElement(nodeID) {
 
 function selectCourse(courseCode) {
     console.log("Selecting course: "+courseCode);
+    document.body.classList.add("viewing-tree");
     document.getElementById('search-form').style.display = "none";
     
     const graphContainer = document.getElementById("graph-container");
