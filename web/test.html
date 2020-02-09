@@ -109,6 +109,23 @@
                     <button class="lucky" type="button">I'm Feeling Lucky</button>
                 </div>
             </form>
+            
+            <div id="graph-container"></div>
+            <template id="course-node-template">
+                <div class="course-node">
+                    <div class="code"></div>
+                    <div class="name"></div>
+                    <div class="prerequisites">
+                        Prerequisites:
+                    </div>
+                </div>
+            </template>
+            <template id="compound-node-template">
+                <div class="compound-node">
+                    <div class="title"></div>
+                    <div class="children"></div>
+                </div>
+            </template>
         </div>
         <script src="graphNodes.js"></script>
         <script src="graphAPI.js"></script>

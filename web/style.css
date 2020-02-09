@@ -16,6 +16,7 @@ body, html
     position: relative;
     width: 100%;
     height: 100%;
+    font-family: sans-serif;
 }
 
 canvas
@@ -30,7 +31,6 @@ canvas
 }
 .header
 {
-    font-family: sans-serif;
     padding-bottom: 40px;
 }
 
@@ -67,7 +67,6 @@ h1
 }
 
 #suggestions > div {
-    font-family: sans-serif;
     padding: 15px;
     font-size: 20px;
     color: black;
@@ -95,7 +94,6 @@ h1
     border: none;
     height: 30px;
     width: 140px;
-    font-family: sans-serif;
     cursor: pointer;
 }
 
@@ -104,6 +102,7 @@ h1
     background-color: #F76902;
 }
 
+<<<<<<< HEAD
 .lucky
 {
     letter-spacing: 1px;
@@ -114,9 +113,196 @@ h1
     width: 140px;
     font-family: sans-serif;
     cursor: pointer;
+=======
+div.modal-dialog {
+  vertical-align: middle;
+}
+
+div.modal-content {
+  vertical-align: middle;
+  height: 100%;
+}
+
+div.rectangle {
+  height: 15px;
+  width: 40%;
+  background-color: #F76902;
+  padding-top: 0;
+}
+
+div.modal-header {
+  border-bottom: 0;
+}
+
+div.modal-body {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+h4.modal-title {
+  font-size: 60px;
+  font-weight: bold;
+  padding-bottom: 0;
+}
+
+span.not-bold {
+  font-weight: normal;
+}
+
+div.square-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  margin-top: 15px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+div.square-wrapper > div {
+  padding: 10px;
+  width: 50%;
+  margin: 30px;
+  border: 10px solid #000000;
+  background: #E5E5E5;
+  margin-bottom: 0;
+}
+
+div.square-wrapper > div > h3 {
+  font-size: 35px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* div.grading:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+} */
+
+/* div.credits:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+} */
+
+/* div.type:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+} */
+
+p.credits-value {
+  line-height: 90%;
+  text-align: center;
+  vertical-align: center;
+  font-size: 80px;
+  margin: 0;
+  color: #F76902;
+  font-weight: bold;
+}
+
+p.grading-value {
+  text-align: center;
+  vertical-align: center;
+  font-size: 30px;
+  margin: 0;
+  color: #F76902;
+  font-weight: bold;
+}
+
+p.type-value {
+  text-align: center;
+  vertical-align: center;
+  font-size: 40px;
+  margin: 0;
+  color: #F76902;
+  font-weight: bold;
+}
+
+div.rectangle-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+div.rectangle-wrapper > div {
+  padding: 10px;
+  width: 50%;
+  margin: 30px;
+  border: 10px solid #000000;
+  background: #E5E5E5;
+}
+
+div.rectangle-wrapper > div > h3 {
+  font-size: 35px;
+  text-align: center;
+  font-weight: bold;
+}
+
+p.prerequisites-value {
+  text-align: center;
+  font-size: 30px;
+  margin: 0;
+  color: #F76902;
+  font-weight: bold;
+}
+
+p.college-value {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 45px;
+  margin-top: 30px;
+  color: #F76902;
+  font-weight: bold;
+}
+
+h3.description-header {
+  font-size: 35px;
+  text-align: center;
+  font-weight: bold;
+}
+
+div.course-description {
+  padding: 10px;
+  border: 10px solid #000000;
+  margin: 30px;
+  margin-top: 0;
+  font-size: 20px;
+  background: #E5E5E5;
+>>>>>>> a53931088d01a766c366bae9ee372d29454b7056
 }
 
 .lucky:hover
 {
     background-color: #F76902;
+}
+
+
+/* course nodes */
+
+.course-node {
+    background-color: #FFF;
+    padding: 0 1em;
+}
+
+.course-node .code {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.course-node .name {
+    font-size: 1.5em;
+}
+
+.compound-node {
+    border-top: 0.5em solid #F76902;
+    padding-top: 0.5em;
+}
+
+.compound-node .title {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.compound-node .children {
+    display: flex;
 }
