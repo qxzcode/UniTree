@@ -8,7 +8,7 @@ from lark.exceptions import LarkError
 parser = Lark.open("prereqs.lark", start="requisites")
 def to_node_tuple(type_):
     def func(self, children):
-        assert isinstance(children, list) and len(children) > 1
+        assert isinstance(children, list)# and len(children) > 1
         return (type_, children)
     return func
 class MyTransformer(Transformer):
@@ -35,12 +35,21 @@ class MyTransformer(Transformer):
 
 transformer = MyTransformer()
 
-def fix_prereqs_str(prereqs_str):
-    prereqs_str = "\n".join(" ".join(line.split()) for line in prereqs_str.split("\n")) # remove excess whitespace
-    return prereqs_str
+def cleanup_str(s):
+    s = "\n".join(" ".join(line.split()) for line in s.split("\n")) # remove excess whitespace
+    try:
+        s = s.encode('latin1').decode('utf8')
+    except:
+        try:
+            s = s.encode('latin1').replace(b'\xc3', b'').replace(b'\xc2', b'').decode('utf8')
+        except:
+            print("Failed to clean up string encoding:")
+            print(json.dumps(s))
+            raise
+    return s
 
 def parse_prereqs(prereqs_str, return_tree=False):
-    tree = parser.parse(fix_prereqs_str(prereqs_str))
+    tree = parser.parse(cleanup_str(prereqs_str))
     reqs_data = transformer.transform(tree)
     if return_tree:
         return reqs_data, tree.pretty()
@@ -57,7 +66,7 @@ def list_course(courses, code, indent=1):
         print(("    " * (indent-1)) + code + " [unknown]\n")
         return
     print(("    " * (indent-1)) + f"{code} ({courses[code]['name']})")
-    prereqs_str = fix_prereqs_str(courses[code]["prerequisites"])
+    prereqs_str = cleanup_str(courses[code]["prerequisites"])
     print(indent_str + prereqs_str)
     reqs, tree_str = get_reqs(courses, code)
     print(indent_str + str(reqs))
@@ -102,10 +111,16 @@ def main():
                 nodes[real_id] = {"type": type_, "children": children_ids}
             return real_id
     for course in tqdm(courses):
-        course["prerequisites"] = fix_prereqs_str(course["prerequisites"])
+        course["prerequisites"] = cleanup_str(course["prerequisites"])
+        course["description"] = cleanup_str(course["description"])
         try:
             reqs = parse_prereqs(course["prerequisites"])
         except LarkError:
+            if course["code"] == "MATH-233":
+                print()
+                print(course["prerequisites"])
+                print()
+                raise
             reqs = {"prerequisites": None, "corequisites": None}
         except:
             print(course["prerequisites"])

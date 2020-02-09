@@ -14,6 +14,7 @@ _non_course_reqs: ("or" _EQUIVALENT)*
 _EQUIVALENT: "equivalent course" ["s" | "(s)"]
            | ["have "] "a math placement " ["exam "] "score " ["greater than or "] "equal to " DIGIT+ (" or " DIGIT+)*
            | "department permission to enroll in this class"
+           | "students in CHEM-BS or CHEM-BS/MS or ISEE-BS programs"
 
 ?courses_and: courses_or (("and" | "&") courses_or)*
 ?courses_or: _courses_or
