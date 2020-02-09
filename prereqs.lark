@@ -15,8 +15,8 @@ _EQUIVALENT: "equivalent course" ["s" | "(s)"]
            | ["have "] "a math placement " ["exam "] "score " ["greater than or "] "equal to " DIGIT+ (" or " DIGIT+)*
            | "department permission to enroll in this class"
 
-courses_and: courses_or (("and" | "&") courses_or)*
-courses_or: _courses_or
+?courses_and: courses_or (("and" | "&") courses_or)*
+?courses_or: _courses_or
 _courses_or: _atom ("or" _atom)*
 _atom: [_MIN_GRADE_PRE] (COURSE | _EQUIVALENT | "(" _courses_or ")" | "(" courses_and ")") [_MIN_GRADE_POST]
 
