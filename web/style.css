@@ -16,6 +16,7 @@ body, html
     position: relative;
     width: 100%;
     height: 100%;
+    font-family: sans-serif;
 }
 
 canvas
@@ -30,7 +31,6 @@ canvas
 }
 .header
 {
-    font-family: sans-serif;
     padding-bottom: 40px;
 }
 
@@ -67,7 +67,6 @@ h1
 }
 
 #suggestions > div {
-    font-family: sans-serif;
     padding: 15px;
     font-size: 20px;
     color: black;
@@ -95,7 +94,6 @@ h1
     border: none;
     height: 30px;
     width: 140px;
-    font-family: sans-serif;
     cursor: pointer;
 }
 
@@ -131,7 +129,6 @@ div.modal-body {
 
 h4.modal-title {
   font-size: 60px;
-  font: sans-serif;
   font-weight: bold;
   padding-bottom: 0;
 }
@@ -263,4 +260,35 @@ div.course-description {
 
 div.modal-footer {
   border-top: 0;
+}
+
+
+/* course nodes */
+
+.course-node {
+    background-color: #FFF;
+    padding: 0 1em;
+}
+
+.course-node .code {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.course-node .name {
+    font-size: 1.5em;
+}
+
+.compound-node {
+    border-top: 0.5em solid #F76902;
+    padding-top: 0.5em;
+}
+
+.compound-node .title {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.compound-node .children {
+    display: flex;
 }
