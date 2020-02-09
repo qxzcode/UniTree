@@ -29,7 +29,7 @@ function makeNodeElement(nodeID) {
     } else {
         // a compound node
         const element = cloneTemplate("compound-node-template");
-        element.querySelector(".title").textContent = {or: "one", and: "all"}[node.type];
+        element.querySelector(".title").textContent = {or: "one of:", and: "all of:"}[node.type];
         const childrenContainer = element.querySelector(".children");
         for (const childID of node.children) {
             const childElement = makeNodeElement(childID);
@@ -44,7 +44,6 @@ function makeNodeElement(nodeID) {
 function selectCourse(courseCode) {
     console.log("Selecting course: "+courseCode);
     document.body.classList.add("viewing-tree");
-    document.getElementById('search-form').style.display = "none";
     
     const graphContainer = document.getElementById("graph-container");
     graphContainer.innerHTML = "";

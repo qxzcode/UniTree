@@ -24,6 +24,10 @@ body.viewing-tree div.canvas-wrapper {
     opacity: 0.1;
 }
 
+body.viewing-tree #search-form {
+    display: none;
+}
+
 canvas
 {
     width: 100%;
@@ -254,8 +258,14 @@ div.modal-footer {
 /* course nodes */
 
 #graph-container {
+    opacity: 0;
+    transition: all ease 0.5s;
     /* padding: 0.5em; */
     /* background-color: #FFF; */
+}
+
+body.viewing-tree #graph-container {
+    opacity: 1;
 }
 
 .course-node {
@@ -293,12 +303,12 @@ div.modal-footer {
 }
 
 .compound-node {
-    border: 2px solid #F76902;
+    border: 2px solid #FF9347;
 }
 
 .compound-node .title {
     padding: 0.05em;
-    border-bottom: 5px solid #F76902;
+    background-color: #FF9347;
     
     font-size: 1.2em;
     font-weight: bold;
