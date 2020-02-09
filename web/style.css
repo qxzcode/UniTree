@@ -1,6 +1,6 @@
 div.canvas-wrapper
 {
-    position: absolute;
+    position: fixed;
     right:0;
     top: 0;
     left: 0;
@@ -87,11 +87,11 @@ h1
     margin: 30px;
 }
 
-.search
+.buttons > button
 {
     letter-spacing: 1px;
     background-color: lightgray;
-    margin-right: 10px;
+    margin: 0 10px;
     border: none;
     height: 30px;
     width: 140px;
@@ -99,24 +99,7 @@ h1
     cursor: pointer;
 }
 
-.search:hover
-{
-    background-color: #F76902;
-}
-
-.lucky
-{
-    letter-spacing: 1px;
-    background-color: lightgray;
-    margin-left: 10px;
-    border: none;
-    height: 30px;
-    width: 140px;
-    font-family: sans-serif;
-    cursor: pointer;
-}
-
-.lucky:hover
+.buttons > button:hover
 {
     background-color: #F76902;
 }
