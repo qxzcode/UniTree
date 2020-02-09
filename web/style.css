@@ -32,7 +32,6 @@ canvas
 .header
 {
     font-family: sans-serif;
-    
 }
 
 h1
@@ -49,7 +48,7 @@ h1
 .search-input
 {     
     letter-spacing: 1px;
-    font-size: 15px;
+    font-size: 20px;
     height: 15px;
     padding: 10px;
 }
@@ -57,13 +56,26 @@ h1
 .container
 {
     margin: 0 auto;
-    width: 50%;
+    width: 40%;
     background: #FFF;
 }
 
 .courses
 {
     width: 100%;
+}
+
+.suggestions 
+{
+    border-top: 2px solid #303030;
+}
+
+.suggestions > div {
+    font-family: sans-serif;
+    padding: 15px;
+    font-size: 20px;
+    color: black;
+    border-top: 1px solid #666;
 }
 
 .buttons
