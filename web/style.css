@@ -49,20 +49,20 @@ h1
 {     
     letter-spacing: 1px;
     font-size: 20px;
-    height: 15px;
-    padding: 10px;
+    height: 39px;
 }
 
 .container
 {
     margin: 0 auto;
-    width: 40%;
+    width: 45%;
     background: #FFF;
 }
 
 .courses
 {
-    width: 100%;
+    width: 98.5%;
+    padding-left: 10px;
 }
 
 .suggestions 

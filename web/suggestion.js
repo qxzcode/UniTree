@@ -1,8 +1,7 @@
 const countries = [
     {name: 'USA'},
     {name: 'India'},
-    {name: 'Argentina'},
-    {name: 'Armenia'}
+    {name: 'Argentina'}
   ];
   
   const searchInput = document.querySelector('.search-input');
