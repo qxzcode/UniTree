@@ -14,6 +14,9 @@ function makeNodeElement(nodeID) {
     } else if (node.type === "course") {
         // a known course
         const element = cloneTemplate("course-node-template");
+        element.querySelector(".info-button").addEventListener("click", function() {
+            updateModal(node.info.code);
+        });
         element.querySelector(".code").textContent = node.info.code;
         element.querySelector(".name").textContent = node.info.name;
         element.querySelector(".prerequisites-text").textContent = node.info.prerequisitesText;
@@ -49,6 +52,8 @@ function selectCourse(courseCode) {
 }
 
 // for testing:
-//document.addEventListener('DOMContentLoaded', function() {
-//    selectCourse("CSCI-243");
-//}, false);
+/*
+document.addEventListener('DOMContentLoaded', function() {
+   selectCourse("CSCI-243");
+}, false);
+//*/

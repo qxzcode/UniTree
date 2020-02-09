@@ -278,6 +278,16 @@ div.modal-footer {
     font-size: 1.5em;
 }
 
+.course-node .info-button {
+    float: right;
+    margin: 0.4em;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    border: 2px solid black;
+    background: url(icons/info.svg) center center / 70% 70% no-repeat;
+}
+
 .course-node .prerequisites {
     margin-top: 0.5em;
 }
